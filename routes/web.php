@@ -38,6 +38,10 @@ Route::get('/backend/manage/footer', [BackendFooterController::class, 'index'])-
 Route::get('/backend/edit/footer/{$id}', [BackendFooterController::class, 'edit'])->name("backend.edit.footer");
 Route::get('/backend/edit/footer/process', [BackendFooterController::class, 'edit_process'])->name("backend.edit.process.footer");
 
+Route::get('/error-access-admin', function(){
+    return view('error-access-admin');
+})->name('error.admin.access');
+
 
 
 

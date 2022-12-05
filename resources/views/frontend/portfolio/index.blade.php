@@ -67,7 +67,7 @@
 @section('css')
     <style>
         .page-section {
-            padding: 12rem 0 2rem 0 !important;
+            padding: 13rem 0 6rem 0 !important;
         }
     </style>
 @endsection
