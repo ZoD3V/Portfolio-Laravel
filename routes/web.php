@@ -43,8 +43,15 @@ Route::get('/error-access-admin', function(){
 })->name('error.admin.access');
 
 
+Auth::routes([
+    'login ' => true,
+    'register ' => false,
+    'reset' => false,
+    'verify' => false,
+]);
 
 
-Auth::routes();
-
+Route::get('/register', function(){
+    return redirect('/login');
+});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
