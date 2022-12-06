@@ -19,6 +19,10 @@ use App\Http\Controllers\Backend\FooterController as BackendFooterController;
 Route::get('/', [HomeController::class, 'index'])->name("frontend.home.index");
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name("frontend.porfolio.index");
 Route::get('/about', [AboutController::class, 'index'])->name("frontend.about.index");
+
+Route::get('/abouts', [AboutController::class, 'about'])->name("backend.about.about");
+Route::post('/about/update', [AboutController::class, 'process'])->name("frontend.about.update");
+
 Route::get('/contact', [ContactController::class, 'index'])->name("frontend.contact.index");
 Route::post('/contact/process', [ContactController::class, 'process'])->name("frontend.contact.process");
 
@@ -38,7 +42,7 @@ Route::get('/backend/manage/footer', [BackendFooterController::class, 'index'])-
 Route::get('/backend/edit/footer/{$id}', [BackendFooterController::class, 'edit'])->name("backend.edit.footer");
 Route::get('/backend/edit/footer/process', [BackendFooterController::class, 'edit_process'])->name("backend.edit.process.footer");
 
-Route::get('/error-access-admin', function(){
+Route::get('/error-access-admin', function () {
     return view('error-access-admin');
 })->name('error.admin.access');
 
@@ -51,7 +55,8 @@ Auth::routes([
 ]);
 
 
-Route::get('/register', function(){
+Route::get('/register', function () {
     return redirect('/login');
 });
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
