@@ -57,7 +57,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{route('backned.manage.contact')}}">
+                                <a class="dropdown-item" href="{{route('backend.manage.contact')}}">
                                     Manage
                                 </a>                               
                             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -38,7 +39,14 @@ class ContactController extends Controller
         if ($validator->fails()) {
             return redirect()->route('frontend.contact.index')->withErrors($validator)->withInput();
         } else {
-            $pesan = "Hi <strong>{$request->name}</strong>, thank you for contacting us";
+
+            Contact::create([
+                'fullname' => $request->name,
+                'email' => $request->email,
+                'whatsapp' => $request->phone,
+                'message' => $request->message,
+            ]);
+            $pesan = "Hi {$request->name}, thank you for contacting us";
             return redirect()->route('frontend.contact.index')->with('success', $pesan);
 
         };

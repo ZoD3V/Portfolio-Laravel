@@ -16,6 +16,6 @@ class IsAdmin
 
         $msg = "You don't have admin access!";
 
-        return redirect('error.admin.access')->with('error', $msg);
+        return redirect()->route('error.admin.access')->with('error', $msg);
     }
 }

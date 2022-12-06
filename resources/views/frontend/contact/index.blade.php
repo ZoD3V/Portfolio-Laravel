@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('title')
-    Contact | Abdul Halim
+
 @endsection
 
 @section('content')
@@ -17,29 +17,34 @@
             <div class="col-lg-8 col-xl-7">
                 <form id="contactForm" action="{{ route('frontend.contact.process') }}" method="post">
                     @csrf
+                    @if (Session::has('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{ Session::get('success') }}
+                        </div>
+                    @endif
                     <div class="form-floating mb-3">
-                        <input class="form-control @error('name') is-invalid @enderror" id="name" type="text" placeholder="Enter your name..."/>
+                        <input class="form-control @error('name') is-invalid @enderror " name="name" type="text" placeholder="Enter your name..."/>
                         <label for="name">Full name</label>
                         @error('name')
                             <div class="text-danger small" >{!! $message !!}</div>
                         @enderror
                     </div>
                     <div class="form-floating mb-3">
-                        <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" placeholder="name@example.com"/>
+                        <input class="form-control @error('email') is-invalid @enderror" name="email" type="email" placeholder="name@example.com"/>
                         <label for="email">Email address</label>
                         @error('email')
                             <div class="text-danger small" >{!! $message !!}</div>
                         @enderror
                     </div>
                     <div class="form-floating mb-3">
-                        <input class="form-control @error('phone') is-invalid @enderror" id="phone" type="tel" placeholder="(123) 456-7890"/>
+                        <input class="form-control @error('phone') is-invalid @enderror" name="phone" type="tel" placeholder="(123) 456-7890"/>
                         <label for="phone">Phone number</label>
                         @error('phone')
                             <div class="text-danger small" >{!! $message !!}</div>
                         @enderror
                     </div>
                     <div class="form-floating mb-3">
-                        <textarea class="form-control @error('message') is-invalid @enderror" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem"></textarea>
+                        <textarea class="form-control @error('message') is-invalid @enderror" name="message" type="text" placeholder="Enter your message here..." style="height: 10rem"></textarea>
                         <label for="message">Message</label>
                         @error('message')
                             <div class="text-danger small" >{!! $message !!}</div>
@@ -54,13 +59,9 @@
 @endsection
 
 @section('css')
-<style>
-    .page-section {
-        padding: 12rem 0 9rem 0 !important;
-    }
-</style>
-@endsection
-
-@section('js')
-    
+    <style>
+        .page-section {
+            padding: 13rem 0 6rem 0 !important
+        }
+    </style>
 @endsection

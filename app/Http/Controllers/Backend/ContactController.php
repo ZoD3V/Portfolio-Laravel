@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -12,7 +13,9 @@ class ContactController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(){
-        return view('backend.contact.index');
+    public function index()
+    {
+        $contacts = Contact::orderBy('id',)->get();
+        return view('backend.contact.index', compact('contacts'));
     }
 }
