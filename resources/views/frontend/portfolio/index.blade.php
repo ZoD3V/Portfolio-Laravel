@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('title')
-   Portfolio | Portfolio Abdul Halim
+   Portfolio | Adhi
 @endsection
 
 @section('content')
@@ -27,7 +27,7 @@
                         <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="..." />
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </section>
@@ -73,5 +73,5 @@
 @endsection
 
 @section('js')
-    
+
 @endsection

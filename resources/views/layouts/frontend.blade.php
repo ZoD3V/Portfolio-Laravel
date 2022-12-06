@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        
+
         <link rel="stylesheet" href="css/app.css">
         @yield('css')
     </head>
@@ -22,7 +22,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('frontend.home.index') }}">Abdul Halim</a>
+                <a class="navbar-brand" href="{{ route('frontend.home.index') }}">Adhi</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -38,7 +38,7 @@
         </nav>
         <!-- Masthead-->
         @yield('content')
-        
+
         <!-- Footer-->
         <footer class="footer text-center">
             <div class="container">
@@ -79,7 +79,7 @@
                     Copyright &copy; KODEIN{{!! date('Y') > 2022 ? 2022 : 2022 . ' - ' . date('Y') !!}}
                 </small>
             </div>
-        </div>   
+        </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>

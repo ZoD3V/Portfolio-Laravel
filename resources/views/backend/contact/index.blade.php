@@ -1,5 +1,26 @@
 @extends('layouts.app')
 
+@section('title')
+    Contact
+@endsection
+
+@section('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+@endsection
+
+@section('javascript')
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $('table').DataTable({
+                "pageLength" : 50
+            })
+        })
+    </script>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -27,9 +48,9 @@
                         @foreach ($contacts as $contact)
                           <tr>
                             <th scope="row">{{ $contact->id }}</th>
-                            <td>{{ $contact->name }}</td>
+                            <td>{{ $contact->fullname }}</td>
                             <td>{{ $contact->email }}</td>
-                            <td>{{ $contact->phone }}</td>
+                            <td>{{ $contact->whatsapp }}</td>
                             <td>{{ $contact->message }}</td>
                           </tr>
                         @endforeach

@@ -25,21 +25,20 @@ class ContactController extends Controller
             'email' => 'required',
             'phone' => 'required',
             'message' => 'required',
-        ];  
+        ];
 
         $message =[
             'nama.required' => 'The Field <strong>name</strong> is requierd!',
             'email.required' => 'The Field <strong>slug</strong> is requierd!',
             'phone.required' => 'The Field <strong>slug</strong> is requierd!',
             'message.required' => 'The Field <strong>slug</strong> is requierd!',
-        ];  
+        ];
 
         $validator = Validator::make($request->all(), $rule, $message);
 
         if ($validator->fails()) {
             return redirect()->route('frontend.contact.index')->withErrors($validator)->withInput();
         } else {
-
             Contact::create([
                 'fullname' => $request->name,
                 'email' => $request->email,
@@ -50,7 +49,7 @@ class ContactController extends Controller
             return redirect()->route('frontend.contact.index')->with('success', $pesan);
 
         };
-        
+
 
 
     }

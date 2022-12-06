@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('title')
-    Portfolio Abdul Halim
+    Portfolio Adhi
 @endsection
 
 @section('content')
@@ -24,9 +24,9 @@
 @endsection
 
 @section('css')
-    
+
 @endsection
 
 @section('js')
-    
+
 @endsection
