@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Update Success
+    CV
 @endsection
 
 @section('css')
@@ -14,14 +14,15 @@
 
 @section('content')
 <div class="container">
-        <div class="divider-custom">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-            <div class="divider-custom-line"></div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('CV') }}</div>
+                <div class="card-body">
+
+                </div>
+            </div>
         </div>
-        <div class="row justify-content-center mb-10">
-                Update Success
-        <a href="{{route('frontend.about.index')}}">Show Preview</a>
-        </div>
+    </div>
 </div>
 @endsection
