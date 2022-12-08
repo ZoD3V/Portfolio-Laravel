@@ -13,6 +13,7 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
         <!-- Core theme CSS (includes Bootstrap)-->
 
         <link rel="stylesheet" href="css/app.css">
@@ -81,6 +82,7 @@
             </div>
         </div>
 
+        <script src="{{ asset('js/scripts.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>

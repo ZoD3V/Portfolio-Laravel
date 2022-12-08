@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\FooterController as BackendFooterController;
 Route::get('/', [HomeController::class, 'index'])->name("frontend.home.index");
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name("frontend.porfolio.index");
 Route::get('/about', [AboutController::class, 'index'])->name("frontend.about.index");
+Route::get('/download/cv', [AboutController::class, 'download_cv'])->name("frontend.about.download.my.cv");
 Route::get('/contact', [ContactController::class, 'index'])->name("frontend.contact.index");
 Route::post('/contact/process', [ContactController::class, 'process'])->name("frontend.contact.process");
 
@@ -38,7 +39,7 @@ Route::get('/backend/manage/about', [BackendAboutController::class, 'index'])->n
 Route::post('/about/update', [BackendAboutController::class, 'process'])->name("frontend.about.update");
 
 Route::get('/backend/manage/cv', [BackendCVController::class, 'index'])->name("backend.manage.cv");
-Route::post('/backend/cv/process', [AboutController::class, 'process'])->name("backend.manage.cv.process");
+Route::post('/backend/cv/process', [BackendCVController::class, 'process'])->name("backend.manage.cv.process");
 
 Route::get('/backend/manage/contact', [BackendContactController::class, 'index'])->name("backend.manage.contact")->middleware('is_admin');
 Route::get('/backend/manage/footer', [BackendFooterController::class, 'index'])->name("backend.manage.footer");

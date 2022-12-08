@@ -19,7 +19,16 @@
             <div class="card">
                 <div class="card-header">{{ __('CV') }}</div>
                 <div class="card-body">
-
+                    <form action="{{ route('backend.manage.cv.process') }}" method="post">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="filename" class="form-label">
+                                Filename <strong class="text-danger">*</strong>
+                            </label>
+                            <input type="file" name="filename" id="filename" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-dark">submit <i class="fas fa-file-upload ps-1"></i> </button>
+                    </form>
                 </div>
             </div>
         </div>

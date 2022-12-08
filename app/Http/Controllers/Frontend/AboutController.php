@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\About;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Response;
 
 class AboutController extends Controller
 {
@@ -13,6 +14,11 @@ class AboutController extends Controller
     {
         $about = About::orderBy('id',)->get();
         return view('frontend.about.index', compact('about'));
+    }
+
+    public function download_cv()
+    {
+        return Response::download(public_path('cv/Muhammad AdhiNugroho.pdf'));
     }
 
     public function about()

@@ -26,7 +26,7 @@
         </div>
         <!-- About Section Button-->
         <div class="text-center mt-4">
-            <a class="btn btn-xl btn-outline-light" href="https://drive.google.com/file/d/178XZ7XYvMGhh-l3s3kVAunCKAx8-cHaM/view?usp=sharing">
+            <a class="btn btn-xl btn-outline-light" href="{{ route('frontend.about.download.my.cv') }}">
                 <i class="fas fa-download me-2"></i>
                 Download My Curriculum Vitae
             </a>
