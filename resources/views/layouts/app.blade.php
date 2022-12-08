@@ -67,6 +67,23 @@
                             </div>
                         </li>
 
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Portfolio
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{route('backend.create.portfolio')}}">
+                                    Create
+                                </a>
+                                    <a class="dropdown-item" href="{{route('backend.manage.portfolio')}}">
+                                    Manage
+                                </a>
+                            </div>
+
+                        </li>
+
+
                         <li class="nav-item">
                             <a id="navbarDropdown" class="nav-link" href="{{route('backend.manage.cv')}}" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
                                 CV

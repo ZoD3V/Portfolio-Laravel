@@ -4,12 +4,20 @@
 @endsection
 
 @section('css')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
 @endsection
 
 @section('javascript')
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(function () {
+            $('textarea[name=desc]').summernote({height: 200});
+        });
+    </script>
+
 @endsection
 
 @section('content')
@@ -19,6 +27,12 @@
             <div class="card">
                 <div class="card-header">{{ __('About') }}</div>
                 <div class="card-body">
+                    @if (Session::has('success'))
+                        <div class="alert alert-success alert-dismissible fade show">
+                            <strong>{{!! Session::get('success') !!}}</strong>
+                            <button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    @endif
                     <form id="contactForm" action="{{ route('frontend.about.update') }}" method="post">
                         @csrf
                         @foreach ($about as $data)
@@ -32,8 +46,8 @@
 
 
                             <div class="form-floating mb-3">
-                                <textarea class="form-control text-start  @error('message') is-invalid @enderror" name="desc" type="text" placeholder="Enter your message here..." style="height: 10rem">{{$data->desc}}</textarea>
-                                <label for="message">Description</label>
+                                <textarea id="summernote" class="form-control text-start  @error('message') is-invalid @enderror" name="desc" type="text" placeholder="Enter your message here..." style="height: 10rem">{{$data->desc}}</textarea>
+                                <label for="desc">Description</label>
                                 @error('message')
                                 <div class="text-danger small" >{!! $message !!}</div>
                                  @enderror

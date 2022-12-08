@@ -15,10 +15,6 @@ class AboutController extends Controller
         return view('backend.about.index', compact('about'));
     }
 
-    public function about()
-    {
-        return view('backend.about.about');
-    }
 
     public function process(Request $request)
     {
@@ -35,14 +31,14 @@ class AboutController extends Controller
         $validator = Validator::make($request->all(), $rule, $message);
 
         if ($validator->fails()) {
-            return redirect()->route('backend.about.about')->withErrors($validator)->withInput();
+            return redirect()->route('backend.manage.about')->withErrors($validator)->withInput();
         } else {
             About::where('id', '1')->update([
                 'title' => $request->title,
                 'desc' => $request->desc,
             ]);
-            $pesan = "Hi {$request->title}, success";
-            return redirect()->route('backend.about.about')->with('success', $pesan);
+            $pesan = "Success Update Data";
+            return redirect()->route('backend.manage.about')->with('success', $pesan);
         };
     }
 }

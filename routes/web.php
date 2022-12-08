@@ -34,7 +34,6 @@ Route::get('/backend/edit/process/portfolio', [BackendHomeController::class, 'ed
 Route::get('/backend/edit/process/portfolio', [BackendPortfolioController::class, 'edit_process'])->name("backend.edit.process.home");
 
 
-Route::get('/abouts', [BackendAboutController::class, 'about'])->name("backend.about.about")->middleware('is_admin');
 Route::get('/backend/manage/about', [BackendAboutController::class, 'index'])->name("backend.manage.about");
 Route::post('/about/update', [BackendAboutController::class, 'process'])->name("frontend.about.update");
 
