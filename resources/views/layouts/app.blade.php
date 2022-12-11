@@ -11,11 +11,14 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{ asset('css/app.css') }}"></script>
     {{-- <script src="{{ assets('js/app.js') }}"></script> --}}
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    @yield('js')
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @yield('javascript')
     @yield('css')
 
     <!-- Scripts -->

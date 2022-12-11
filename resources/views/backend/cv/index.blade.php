@@ -21,11 +21,17 @@
                 <div class="card-body">
                     <form action="{{ route('backend.manage.cv.process') }}" method="post">
                         @csrf
+                        <span class="badge bg-warning">{{$cv->filename}}</span>
                         <div class="mb-3">
                             <label for="filename" class="form-label">
                                 Filename <strong class="text-danger">*</strong>
                             </label>
-                            <input type="file" name="filename" id="filename" class="form-control">
+                            <input type="file" name="filename" id="filename" class="form-control @error('filename')
+                            is-invalid
+                            @enderror">
+                            @error('filename')
+                            <small class="text-danger">{{$message}}</small>
+                            @enderror
                         </div>
                         <button type="submit" class="btn btn-dark">submit <i class="fas fa-file-upload ps-1"></i> </button>
                     </form>

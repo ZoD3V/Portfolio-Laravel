@@ -36,18 +36,20 @@
                     <form id="contactForm" action="{{ route('frontend.about.update') }}" method="post">
                         @csrf
                         @foreach ($about as $data)
-                            <div class="form-floating mb-3">
-                                <input class="form-control @error('name') is-invalid @enderror " name="title" type="text" value="{{$data->title}}" placeholder="Enter your name..."/>
+                            <div class="mb-3">
                                 <label for="name">Title</label>
+                                <input class="form-control @error('name') is-invalid @enderror " name="title" type="text" value="{{$data->title}}" placeholder="Enter your name..."/>
+
                                 @error('message')
                                 <div class="text-danger small" >{!! $message !!}</div>
                                 @enderror
                             </div>
 
 
-                            <div class="form-floating mb-3">
-                                <textarea id="summernote" class="form-control text-start  @error('message') is-invalid @enderror" name="desc" type="text" placeholder="Enter your message here..." style="height: 10rem">{{$data->desc}}</textarea>
+                            <div class="mb-3">
                                 <label for="desc">Description</label>
+                                <textarea id="summernote" class="form-control text-start  @error('message') is-invalid @enderror" name="desc" type="text" placeholder="Enter your message here..." style="height: 10rem">{{$data->desc}}</textarea>
+
                                 @error('message')
                                 <div class="text-danger small" >{!! $message !!}</div>
                                  @enderror

@@ -16,7 +16,22 @@
     <script>
         $(function () {
             $('textarea[name=desc]').summernote({height: 200});
+            $('input[name=image]').change(function(){
+                imagePreview(this);
+            });
         });
+        function imagePreview(input){
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e){
+                    $("#preview").removeClass("d-none");
+                    $("#preview").attr("src",e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
     </script>
 
 @endsection
@@ -51,19 +66,20 @@
                                         <label for="filename" class="form-label">
                                             Filename <strong class="text-danger">*</strong>
                                         </label>
-                                        <input type="file" name="filename" id="filename" class="form-control">
+                                        <input type="file" name="image" id="image" class="form-control">
+                                        <img src="" class="img-thumbnail mt-3 mb-3 d-none w-50" id="preview">
                                          @error('image')
                                     <div class="text-danger small" >{!! $message !!}</div>
                                     @enderror
                                     </div>
 
-                                    <div class="form-floating mb-3">
-                                        <textarea id="summernote" class="form-control text-start  @error('description') is-invalid @enderror" name="desc" type="text" placeholder="Enter your message here..." style="height: 10rem"></textarea>
-                                        <label for="desc">Description</label>
-                                        @error('description')
-                                            <div class="text-danger small" >{!! $message !!}</div>
-                                        @enderror
-                                    </div>
+                                <div class="mb-3">
+                                    <div class="mb-2 @error('description') text-danger fw-bold @enderror">Description:</div>
+                                    <textarea class="form-control @error('description') text-danger fw-bold @enderror" name="description" placeholder="description"></textarea>
+                                    @error('description')
+                                        <small class="text-danger">{!! $message !!}</small>
+                                    @enderror
+                                </div>
 
                                     <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Send</button>
                                 </div>
@@ -76,3 +92,4 @@
     </div>
 </div>
 @endsection
+

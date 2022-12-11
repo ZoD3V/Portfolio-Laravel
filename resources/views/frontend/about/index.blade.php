@@ -21,7 +21,7 @@
         </div>
         <!-- About Section Content-->
         <div class="row">
-            <div class="row-lg-4 ms-auto"><p class="lead">{{$data->desc}}</p></div>
+            <div class="row-lg-4 ms-auto"><p class="lead">{!! $data->desc !!}</p></div>
 
         </div>
         <!-- About Section Button-->

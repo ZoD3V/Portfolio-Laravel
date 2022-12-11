@@ -24,7 +24,7 @@ class PortfolioController extends Controller
         return view('backend.portfolio.create');
     }
 
-    public function create_process(Request $request)
+    public function create_proccess(Request $request)
     {
         request()->validate([
             'title' => 'required',
@@ -33,16 +33,16 @@ class PortfolioController extends Controller
         ]);
 
         $image = time() . '.' . $request->image->extension();
-        $request->image->move(public_path('images/portfolio'), $image);
+        $request->image->move(public_path('portfolio'), $image);
 
         Portfolio::create([
-            'title' =>  $request->title,
+            'title' => $request->title,
             'image' => $image,
             'description' => $request->description,
         ]);
 
         return redirect()
             ->route('backend.manage.portfolio')
-            ->with('success', 'Item Created Successully');
+            ->with('success', 'item created successfully.');
     }
 }
