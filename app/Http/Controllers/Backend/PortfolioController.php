@@ -15,7 +15,34 @@ class PortfolioController extends Controller
 
     public function index()
     {
-        $portfolio = Portfolio::find(1);
+        $portfolio = Portfolio::get();
         return view('backend.portfolio.index', compact('portfolio'));
+    }
+
+    public function create()
+    {
+        return view('backend.portfolio.create');
+    }
+
+    public function create_process(Request $request)
+    {
+        request()->validate([
+            'title' => 'required',
+            'image' => 'required|max:2048|mimes:jpg,jpeg,png',
+            'description' => 'required',
+        ]);
+
+        $image = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('images/portfolio'), $image);
+
+        Portfolio::create([
+            'title' =>  $request->title,
+            'image' => $image,
+            'description' => $request->description,
+        ]);
+
+        return redirect()
+            ->route('backend.manage.portfolio')
+            ->with('success', 'Item Created Successully');
     }
 }

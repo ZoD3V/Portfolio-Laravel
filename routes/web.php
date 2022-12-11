@@ -27,8 +27,8 @@ Route::post('/contact/process', [ContactController::class, 'process'])->name("fr
 Route::get('/backend/manage/home', [BackendHomeController::class, 'index'])->name("backend.manage.home");
 
 Route::get('/backend/manage/portfolio', [BackendPortfolioController::class, 'index'])->name("backend.manage.portfolio");
-Route::get('/backend/create/portfolio', [BackendHomeController::class, 'create'])->name("backend.create.portfolio");
-Route::get('/backend/create/process/portfolio', [BackendPortfolioController::class, 'create_process'])->name("backend.create.process.portfolio");
+Route::get('/backend/create/portfolio', [BackendPortfolioController::class, 'create'])->name("backend.create.portfolio");
+Route::post('/backend/create/process/portfolio', [BackendPortfolioController::class, 'create_process'])->name("backend.create.process.portfolio");
 Route::get('/backend/edit/portfolio/{id?}', [BackendHomeController::class, 'edit'])->name("backend.edit.home");
 Route::get('/backend/edit/process/portfolio', [BackendHomeController::class, 'edit'])->name("backend.edit.process.home");
 Route::get('/backend/edit/process/portfolio', [BackendPortfolioController::class, 'edit_process'])->name("backend.edit.process.home");
