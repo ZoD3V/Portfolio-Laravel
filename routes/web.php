@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\ContactController as BackendContactController;
 use App\Http\Controllers\Backend\CVController as BackendCVController;
 use App\Http\Controllers\Backend\PortfolioController as BackendPortfolioController;
 use App\Http\Controllers\Backend\FooterController as BackendFooterController;
+use App\Http\Controllers\Backend\ProfileController as BackendProfileController;
 
 
 
@@ -44,6 +45,8 @@ Route::get('/backend/manage/contact', [BackendContactController::class, 'index']
 Route::get('/backend/manage/footer', [BackendFooterController::class, 'index'])->name("backend.manage.footer");
 Route::get('/backend/edit/footer/{$id}', [BackendFooterController::class, 'edit'])->name("backend.edit.footer");
 Route::get('/backend/edit/footer/process', [BackendFooterController::class, 'edit_process'])->name("backend.edit.process.footer");
+Route::get('/backend/profile', [BackendProfileController::class, 'profile'])->name("backend.profile");
+Route::post('/backend/profile/process', [BackendProfileController::class, 'profile_process'])->name("backend.profile.process");
 
 Route::get('/error-access-admin', function () {
     return view('error-access-admin');
