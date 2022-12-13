@@ -52,9 +52,9 @@
                             <td><img src="{{ asset('portfolio/'.$item->image) }}" class="img-thumbnail w-50" alt=""></td>
                             <td>{!! $item->description !!}</td>
                             <td>
-                                <a href="" class="btn btn-sm btn-primary"><i class="fas fa-search pe-1"></i> Show</a>
-                                <a href="" class="btn btn-sm btn-success"><i class="fas fa-pencil-alt pe-1"></i> Edit</a>
-                                <form action="" method="POST" class="d-inline">
+                                <a href={{route('backend.show.home',$item->id)}} class="btn btn-sm btn-primary"><i class="fas fa-search pe-1"></i> Show</a>
+                                <a href={{route('backend.edit.home',$item->id)}} class="btn btn-sm btn-success"><i class="fas fa-pencil-alt pe-1"></i> Edit</a>
+                                <form action={{route('backend.delete.portfolio',$item->id)}} method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-danger" type="submit">

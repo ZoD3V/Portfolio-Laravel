@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Portfolio | Create
+    Portfolio | Edit
 @endsection
 
 @section('css')
@@ -28,7 +28,6 @@
                     $("#preview").removeClass("d-none");
                     $("#preview").attr("src",e.target.result);
                 }
-
                 reader.readAsDataURL(input.files[0]);
             }
         }
@@ -41,11 +40,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Portfolio | Create') }}</div>
+                <div class="card-header">{{ __('Portfolio | Edit') }}</div>
                 <div class="card-body">
-                    <form id="contactForm" action="{{ route('backend.create.process.portfolio') }}" method="post" enctype="multipart/form-data">
+                    <form id="contactForm" action="{{ route('backend.edit.process', ['id'=> Route::current()->parameters['id']])}}" method="post" enctype="multipart/form-data">
                         @csrf
+                        @foreach ($portfolio as $value)
                             <div class="row">
+                             <div class="form-control">
                                 <div class="col-xs-12 col-sm-12  col-md-12 mb-3">
                                     <div class="form-group mb-3">
                                         <div class="mb-2 @error('title')
@@ -53,7 +54,7 @@
                                         @enderror">
                                         Title:
                                         </div>
-                                        <input type="text" name="title" value="{{ old('title') }}" placeholder="Title"
+                                        <input type="text" name="title" value="{{ $value->title }}" placeholder="Title"
                                         class="form-control">
                                         @error('title')
                                         text-danger is-invalid
@@ -67,7 +68,12 @@
                                             Filename <strong class="text-danger">*</strong>
                                         </label>
                                         <input type="file" name="image" id="image" class="form-control">
-                                        <img src="" class="img-thumbnail mt-3 mb-3 d-none w-50" id="preview">
+
+                                         <img src="" class="img-thumbnail mt-3 mb-3 d-none w-50" id="preview">
+
+                                        <img src="{{ asset('portfolio/'. $value->image ) }}" class="img-thumbnail mt-3 mb-3 w-50" id="preview">
+
+                                        {{-- <img src="{{ asset('portfolio/'. $value->image ) }}" class=" w-50" alt=""> --}}
                                          @error('image')
                                     <div class="text-danger small" >{!! $message !!}</div>
                                     @enderror
@@ -75,16 +81,16 @@
 
                                 <div class="mb-3">
                                     <div class="mb-2 @error('description') text-danger fw-bold @enderror">Description:</div>
-                                    <textarea class="form-control @error('description') text-danger fw-bold @enderror" name="description" placeholder="description"></textarea>
+                                    <textarea class="form-control @error('description') text-danger fw-bold @enderror" name="description" placeholder="description">{{ $value->description }}</textarea>
                                     @error('description')
                                         <small class="text-danger">{!! $message !!}</small>
                                     @enderror
                                 </div>
 
-                                    <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Send</button>
+                                    <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Edit</button>
                                 </div>
                             </div>
-
+                            @endforeach
                     </form>
                 </div>
             </div>

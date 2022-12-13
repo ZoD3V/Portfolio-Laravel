@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Portfolio;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -37,4 +38,5 @@ class ProfileController extends Controller
 
     return back()->with('success', "New passsword changed successfully.");
   }
+
 }

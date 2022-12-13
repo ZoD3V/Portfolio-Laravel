@@ -29,10 +29,11 @@ Route::get('/backend/manage/home', [BackendHomeController::class, 'index'])->nam
 
 Route::get('/backend/manage/portfolio', [BackendPortfolioController::class, 'index'])->name("backend.manage.portfolio");
 Route::get('/backend/create/portfolio', [BackendPortfolioController::class, 'create'])->name("backend.create.portfolio");
-Route::post('/backend/create/process/portfolio', [BackendPortfolioController::class, 'create_proccess'])->name("backend.create.process.portfolio");
-Route::get('/backend/edit/portfolio/{id?}', [BackendHomeController::class, 'edit'])->name("backend.edit.home");
-Route::get('/backend/edit/process/portfolio', [BackendHomeController::class, 'edit'])->name("backend.edit.process.home");
-Route::get('/backend/edit/process/portfolio', [BackendPortfolioController::class, 'edit_process'])->name("backend.edit.process.home");
+Route::post('/backend/create/process/portfolio', [BackendPortfolioController::class, 'create_process'])->name("backend.create.process.portfolio");
+Route::get('/backend/edit/portfolio/{id?}', [BackendPortfolioController::class, 'edit'])->name("backend.edit.home");
+Route::post('/backend/edit/portfolio/{id?}', [BackendPortfolioController::class, 'edit_process'])->name("backend.edit.process");
+Route::get('/backend/process/portfolio/{id?}', [BackendPortfolioController::class, 'show'])->name("backend.show.home");
+Route::delete('/backend/delete/portfolio/{id?}', [BackendPortfolioController::class, 'destroy'])->name("backend.delete.portfolio");
 
 
 Route::get('/backend/manage/about', [BackendAboutController::class, 'index'])->name("backend.manage.about");
